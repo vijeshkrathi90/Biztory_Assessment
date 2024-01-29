@@ -13,47 +13,57 @@
 For this assessment I used these prerequisites settings. All this setup is already in use for existing project whom I used to work.
 
 ## Steps:
-    - Clone the Git Repository:
-        - git clone https://github.com/vijeshkrathi90/Biztory_Assessment.git
+- Clone the Git Repository:
+    ```bash
+      git clone https://github.com/vijeshkrathi90/Biztory_Assessment.git
 
-    - Change Directory:
-        - cd Bitzory_Assessment
+- Change Directory:
+    - cd Bitzory_Assessment
 
-    - Install/Update Dependencies:
-        - If found composer.lock file in root then update else install the dependencies:
-            - Composer update (Any of them according)
-            - Composer install 
+- Install/Update Dependencies:
+    - If found composer.lock file in root then update else install the dependencies:
+      
+    ```bash
+      Composer update
+      Composer install 
 
-    - Copy .env.example to .env
-        -cp .env.example .env
+- Copy .env.example to .env
+    ```bash
+  cp .env.example .env
 
-    - Configure your .env file with the appropriate database connection details.
-    - Generate Application Key:
-        - php artisan key:generate
+- Configure your .env file with the appropriate database connection details.
+- Generate Application Key:
+  ```bash
+    php artisan key:generate
 
-    - Run Migrations with seeding the data:
-        - php artian migrate:fresh --seed 
-            -- This seeder is based on factory might be sometime occurs error try again due to ID conflicts according to .
+- Run Migrations with seeding the data:
+  ```bash
+   php artian migrate:fresh --seed 
+This seeder is based on factory might be sometime occurs error try again due to ID conflicts according to .
 
-    - Clear Caches (Config, Routes, complied)
-        - php artisan op:cl
-        
-    - Start Development Server:
-        - php artisan serve
-        -Your Laravel application should now be running at http://localhost:8000
-
-    - Rest API's:
-        - php artisan passport:install
+- Clear Caches (Config, Routes, complied)
+   ```bash
+    php artisan op:cl
     
-    - Run Tests:
-        - php artisan test
-        This command will perform all the existing test.
+- Start Development Server:
+   ```bash
+    php artisan serve
+Your Laravel application should now be running at http://localhost:8000
 
-    - API End Points:
-        - BASE URL: **http://127.0.0.1:8000/api/v1**
-        - Listing: GET {BASE_URL}/sales 
-        
-    Please find POSTMAN collection in the root under name of assessment.
+- Rest API's:
+  ```bash
+  php artisan passport:install
+
+- Run Tests:
+  ```bash
+    - php artisan test
+This command will perform all the existing test.
+
+- API End Points:
+    - BASE URL: **http://127.0.0.1:8000/api/v1**
+    - Listing: GET {BASE_URL}/sales 
+    
+Please find POSTMAN collection in the root under name of assessment.
     
     
 # GraphQL API Documentation
@@ -69,7 +79,9 @@ This GraphQL API provides access to sales data, allowing users to retrieve daily
    ```bash
    php artisan serve
 
-2. Open your browser and navigate to http://127.0.0.1:8000/graphql-playground
+2. Open your browser and navigate to
+   ```bash
+   http://127.0.0.1:8000/graphql-playground
 
 ## Queries
 DailyTotalSalesQuery
@@ -77,25 +89,25 @@ Retrieve the total sales amount for each day within a specified date range.
 
 Query Example:
 
-```Execute GraphQL-Playground
-query {
-  DailyTotalSalesQuery(
-    startDate: "2023-01-01",
-    endDate: "2024-01-31",
-    paymentStatus: 1,
-    payeeId: 2
-  )
-}
+    ```Execute GraphQL-Playground
+    query {
+      DailyTotalSalesQuery(
+        startDate: "2023-01-01",
+        endDate: "2024-01-31",
+        paymentStatus: 1,
+        payeeId: 2
+      )
+    }
 
 ## Query Parameters:
-    - startDate (String): The start date of the date range (format: "YYYY-MM-DD").
-    - endDate (String): The end date of the date range (format: "YYYY-MM-DD").
-    - paymentStatus (Int): Filter sales by payment status (optional).
-    - payeeId (Int): Filter sales by payee ID (optional).
+- startDate (String): The start date of the date range (format: "YYYY-MM-DD").
+- endDate (String): The end date of the date range (format: "YYYY-MM-DD").
+- paymentStatus (Int): Filter sales by payment status (optional).
+- payeeId (Int): Filter sales by payee ID (optional).
 ## Query Response:
 The response will include the total sales amount for each day within the specified date range.
 
-##How to Use
+## How to Use
 1. Open the GraphQL Playground in your browser.
 2. Copy and paste the provided example query into the Playground.
 3. Modify the query parameters as needed.
