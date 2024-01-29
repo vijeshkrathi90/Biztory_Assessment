@@ -6,12 +6,6 @@
 
 ## Laravel Installation Guide:
 
-- Prerequisites:
-    - PHP v8.1
-    - Composer v2.6.6
-    - MySQL v8.0.35
-For this assessment I used these prerequisites settings. All this setup is already in use for existing project whom I used to work.
-
 ## Steps:
 - Clone the Git Repository:
     ```bash
