@@ -1,0 +1,567 @@
+{
+	"info": {
+		"_postman_id": "9dc4ee72-3a90-434c-8ff0-d7c4ba87b341",
+		"name": "Bitzory Assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32560236"
+	},
+	"item": [
+		{
+			"name": "Listing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/sales",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "status",
+							"value": "1",
+							"description": "required|numeric|in:1,2,3",
+							"type": "text"
+						},
+						{
+							"key": "ref_num",
+							"value": "AA1234",
+							"description": "required|string|max:50",
+							"type": "text"
+						},
+						{
+							"key": "invoice_date",
+							"value": "2024-01-30",
+							"description": "required|date|date_format:Y-m-d",
+							"type": "text"
+						},
+						{
+							"key": "delivery_date",
+							"value": "2024-01-30",
+							"description": "nullable|date|date_format:Y-m-d",
+							"type": "text"
+						},
+						{
+							"key": "payee",
+							"value": "Vijesh",
+							"description": "required|string|max:255",
+							"type": "text"
+						},
+						{
+							"key": "payee_id",
+							"value": "1",
+							"description": "required|numeric",
+							"type": "text"
+						},
+						{
+							"key": "total",
+							"value": "1500",
+							"description": "required|numeric",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "RM",
+							"description": "nullable|string|max:3",
+							"type": "text"
+						},
+						{
+							"key": "currency_total",
+							"value": "1500",
+							"description": "required|numeric",
+							"type": "text"
+						},
+						{
+							"key": "paid",
+							"value": "1500",
+							"description": "required|numeric",
+							"type": "text"
+						},
+						{
+							"key": "due",
+							"value": "7",
+							"description": "required|numeric",
+							"type": "text"
+						},
+						{
+							"key": "rounding",
+							"value": "8",
+							"description": "nullable|numeric",
+							"type": "text"
+						},
+						{
+							"key": "due_date",
+							"value": "2024-01-30",
+							"description": "nullable|date|date_format:Y-m-d",
+							"type": "text"
+						},
+						{
+							"key": "attn",
+							"value": "test",
+							"description": "nullable|string|max:200",
+							"type": "text"
+						},
+						{
+							"key": "payment_term",
+							"value": "Installment",
+							"description": "nullable|string|max:20",
+							"type": "text"
+						},
+						{
+							"key": "payment_status",
+							"value": "1",
+							"description": "required|numeric|in:0,1",
+							"type": "text"
+						},
+						{
+							"key": "delivery_status",
+							"value": "1",
+							"description": "required|numeric|in:0,1",
+							"type": "text"
+						},
+						{
+							"key": "branch_id",
+							"value": "1",
+							"description": "nullable|numeric",
+							"type": "text"
+						},
+						{
+							"key": "locked",
+							"value": "1",
+							"description": "required|numeric|in:1,2,3",
+							"type": "text"
+						},
+						{
+							"key": "staff_id",
+							"value": "1",
+							"description": "required|numeric",
+							"type": "text"
+						},
+						{
+							"key": "author_id",
+							"value": "8",
+							"description": "nullable|numeric",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/sales",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/sales/1001",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "status",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "ref_num",
+							"value": "123AA",
+							"type": "text"
+						},
+						{
+							"key": "invoice_date",
+							"value": "2024-01-30",
+							"type": "text"
+						},
+						{
+							"key": "delivery_date",
+							"value": "2024-01-30",
+							"type": "text"
+						},
+						{
+							"key": "payee",
+							"value": "Vijesh",
+							"type": "text"
+						},
+						{
+							"key": "payee_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "total",
+							"value": "1500",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "RM",
+							"type": "text"
+						},
+						{
+							"key": "currency_total",
+							"value": "1500",
+							"type": "text"
+						},
+						{
+							"key": "paid",
+							"value": "1500",
+							"type": "text"
+						},
+						{
+							"key": "due",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "rounding",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "due_date",
+							"value": "2024-01-30",
+							"type": "text"
+						},
+						{
+							"key": "attn",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "payment_term",
+							"value": "Installment",
+							"type": "text"
+						},
+						{
+							"key": "payment_status",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "delivery_status",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "branch_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "locked",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "staff_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "author_id",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/sales/1001",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SoftDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/sales/1001",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Soft Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ids\": [\r\n        1,\r\n        2\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/sales/bulk-soft-delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"bulk-soft-delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Force Delete/ Hard Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/sales/force/1001",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"force",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Force Delete/ Bulk Hard Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ids\": [\r\n        1,\r\n        2\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/sales/bulk-force-delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"bulk-force-delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recover Soft Deleted",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/sales/recover/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"recover",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Recover Soft Deleted",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ids\": [\r\n        4,\r\n        5\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/sales/bulk-recover",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"bulk-recover"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Soft Delete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/sales/soft-deleted",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"soft-deleted"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Paginate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/sales/paginate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"paginate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/sales/filter?delivery_date=2023-12-29&branch_id=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "delivery_date",
+							"value": "2023-12-29"
+						},
+						{
+							"key": "branch_id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Total Sales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/sales/total-sales",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales",
+						"total-sales"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api/v1",
+			"type": "string"
+		}
+	]
+}
