@@ -1,0 +1,8 @@
+type Query {
+    DailyTotalSalesQuery(
+        startDate: String!,
+        endDate: String!,
+        paymentStatus: Int,
+        payeeId: Int
+    ): Float!
+}
