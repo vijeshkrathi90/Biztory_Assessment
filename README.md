@@ -1,66 +1,116 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+    <a href="javascript:void(0)" target="_blank">
+        <img src="https://s3-ap-southeast-1.amazonaws.com/biztory-wordpress-img/wp-content/uploads/2019/09/11005849/biztory_logo.png" width="400" alt="Laravel Logo">
+    </a>
 </p>
 
-## About Laravel
+## Laravel Installation Guide:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Prerequisites:
+    - PHP v8.1
+    - Composer v2.6.6
+    - MySQL v8.0.35
+For this assessment I used these prerequisites settings. All this setup is already in use for existing project whom I used to work.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Steps:
+- Clone the Git Repository:
+    ```bash
+      git clone https://github.com/vijeshkrathi90/Biztory_Assessment.git
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Change Directory:
+    - cd Bitzory_Assessment
 
-## Learning Laravel
+- Install/Update Dependencies:
+    - If found composer.lock file in root then update else install the dependencies:
+      
+    ```bash
+      Composer update
+      Composer install 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Copy .env.example to .env
+    ```bash
+  cp .env.example .env
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Configure your .env file with the appropriate database connection details.
+- Generate Application Key:
+  ```bash
+    php artisan key:generate
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Run Migrations with seeding the data:
+  ```bash
+   php artian migrate:fresh --seed 
+This seeder is based on factory might be sometime occurs error try again due to ID conflicts according to .
 
-## Laravel Sponsors
+- Clear Caches (Config, Routes, complied)
+   ```bash
+    php artisan op:cl
+    
+- Start Development Server:
+   ```bash
+    php artisan serve
+Your Laravel application should now be running at http://localhost:8000
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Rest API's:
+  ```bash
+  php artisan passport:install
 
-### Premium Partners
+- Run Tests:
+  ```bash
+    - php artisan test
+This command will perform all the existing test.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- API End Points:
+    - BASE URL: **http://127.0.0.1:8000/api/v1**
+    - Listing: GET {BASE_URL}/sales 
+    
+Please find POSTMAN collection in the root under name of assessment.
+    
+    
+# GraphQL API Documentation
 
-## Contributing
+## Overview
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+This GraphQL API provides access to sales data, allowing users to retrieve daily total sales within a given date range, filtered by payment status and payee ID.
 
-## Code of Conduct
+## Accessing GraphQL Playground
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. Start the Laravel development server:
 
-## Security Vulnerabilities
+   ```bash
+   php artisan serve
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2. Open your browser and navigate to
+   ```bash
+   http://127.0.0.1:8000/graphql-playground
 
-## License
+## Queries
+DailyTotalSalesQuery
+Retrieve the total sales amount for each day within a specified date range.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Query Example:
+
+    ```Execute GraphQL-Playground
+    query {
+      DailyTotalSalesQuery(
+        startDate: "2023-01-01",
+        endDate: "2024-01-31",
+        paymentStatus: 1,
+        payeeId: 2
+      )
+    }
+
+## Query Parameters:
+- startDate (String): The start date of the date range (format: "YYYY-MM-DD").
+- endDate (String): The end date of the date range (format: "YYYY-MM-DD").
+- paymentStatus (Int): Filter sales by payment status (optional).
+- payeeId (Int): Filter sales by payee ID (optional).
+## Query Response:
+The response will include the total sales amount for each day within the specified date range.
+
+## How to Use
+1. Open the GraphQL Playground in your browser.
+2. Copy and paste the provided example query into the Playground.
+3. Modify the query parameters as needed.
+4. Press the "Play" button to execute the query.
+5. Review the results in the "Response" panel.
+        
